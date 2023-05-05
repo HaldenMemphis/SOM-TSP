@@ -6,10 +6,10 @@ def read_tsp(filename):
         node_coord_start, dimension = get_tsp_info(f)
         print('Problem with {} cities read.'.format(dimension))
         f.seek(0)
-        cities = read_cities_data(f, node_coord_start, dimension)
-        # cities.set_index('city', inplace=True)
+        cities = read_cities_data(f, node_coord_start, dimension)  
         return cities
 
+#Extracting tsp information from the file
 def get_tsp_info(file):
     node_coord_start = None
     dimension = None
