@@ -52,10 +52,10 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
             print('Iterated {} out of {}'.format(i, iterations), end="\r")
         # select a random city
         random_num = random.randint(0,cities.shape[0])
-        select_city=cities.iloc(random_num)[['x', 'y']].values
+        select_city=cities.sample(1)[['x', 'y']].values
         # find the winner
         winner = find_winner(network,select_city)
-        network= learn(winner,network,learning_rate,(select_city - network))
+        network= learn(winner,network,learning_rate,(select_city - network),size)
         # Decay the variables
         learning_rate = learning_rate * decrease_rate
         size = size * decrease_rate
