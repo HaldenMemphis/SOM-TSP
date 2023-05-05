@@ -4,7 +4,6 @@ import numpy as np
 def read_tsp(filename):
     with open(filename) as f:
         node_coord_start, dimension = get_tsp_info(f)
-        print('Problem with {} cities read.'.format(dimension))
         f.seek(0)
         cities = read_cities_data(f, node_coord_start, dimension)  
         return cities
