@@ -11,3 +11,8 @@ In this SOM algorithm:
 在本SOM算法中：
 + 使用欧几里得距离作为竞争机制
 + 使用正态分布作为对胜利者节点的奖赏（赢家通吃）
+
+## DataSet
+The dataset in the experiment was selected from a competition called 'Traveling Santa 2018 - Prime Paths' and the competiton was published in the website Kaggle. This is the link of the raw dataset: https://www.kaggle.com/competitions/traveling-santa-2018-prime-paths/data
+
+The raw dataset includes a list of cities and their coordinates, this experiment was conducted with about 8000 randomly selected data from the raw data.
