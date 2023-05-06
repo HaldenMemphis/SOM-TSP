@@ -10,7 +10,7 @@ def read_tsp(filename):
 def read_cities_data(file):
     cities = pd.read_csv(
         file,
-        sep=' ',
+        sep=',',
         names=['city', 'y', 'x'],
         dtype={'city': str, 'x': np.float64, 'y': np.float64},
         header=None,
