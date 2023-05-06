@@ -13,4 +13,4 @@ def plot_route(city_df, route, figname='route.png'):
     plt.legend()
     plt.title('City and Route Coordinates')
     plt.savefig(figname, bbox_inches='tight', pad_inches=0)
-
+    plt.close()
