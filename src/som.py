@@ -61,8 +61,9 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
         size = size * decrease_rate
 
         # Generate a graph every 500 iterations
-        if i%500 == 0:
-            #TODO: draw the picture
+        # if i%500 == 0:
+        #     #TODO: draw the picture
+        #     return 0
         # Check if any parameter has completely decayed.
         if size < 1 or learning_rate < 0.001:
             print('Complete execution',
