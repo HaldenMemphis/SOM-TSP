@@ -14,4 +14,5 @@ In this SOM algorithm:
 
 ## DataSet
 The dataset in the experiment was selected from a competition called 'Traveling Santa 2018 - Prime Paths' and the competiton was published in the website Kaggle. This is the link of the raw dataset: https://www.kaggle.com/competitions/traveling-santa-2018-prime-paths/data
+
 The raw dataset includes a list of cities and their coordinates, this experiment was conducted with about 8000 randomly selected data from the raw data.
