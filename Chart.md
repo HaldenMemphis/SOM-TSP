@@ -4,10 +4,25 @@
 
 **Each table records the elapsed time and path length for the SOM and dynamic planning algorithms to solve the traveling slaseman problem.**
 
+| san200.csv  |Times/s   |Length   |
+| ------------ | ------------ | ------------ |
+| SOM  |  27 |  44998.64598604117 |
+| Dynamic  | 1  |  47685.74924787642  |
+
+| san600.csv  |Times/s   |Length   |
+| ------------ | ------------ | ------------ |
+| SOM  |  35 |  71856.09408038962  |
+| Dynamic  | 1  |  74869.65554432618  |
+
 | san1000.csv  |Times/s   |Length   |
 | ------------ | ------------ | ------------ |
 | SOM  |  52 |  95661.5401432995  |
 | Dynamic  | 3  |  97262.1362097202  |
+
+| san2000.csv  |Times/s   |Length   |
+| ------------ | ------------ | ------------ |
+| SOM  |  78 |  132016.92875069042  |
+| Dynamic  | 14  |  135715.8283109872  |
 
 | san4000.csv  |Times/s   |Length   |
 | ------------ | ------------ | ------------ |
