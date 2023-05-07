@@ -3,6 +3,8 @@ import numpy as np
 from normalize import normalize
 from distance import get_euclidean_distance
 from learn import learn
+from plot import plot_network
+from plot_network import plot_learning_network
 
 
 # first we assume that the normalize function will provide a numpy array (nodes)
@@ -24,39 +26,39 @@ def get_route(cities, network):
 
 
 def som(cities_list, iterations, learning_rate, decrease_rate):
+    learning_rate_records=[]
     cities = cities_list.copy()
     # normalize all the cities' coordinates to [0,1]
     cities[['x', 'y']] = normalize(cities[['x', 'y']])
 
-    size = cities.shape[0] * 10
+    size = cities.shape[0] * 8
     network = create_network(size)
     print('Initialized a {} nodes network.'.format(size))
 
     # start iterate
     for i in range(iterations):
-        if i % 100:
-            print('Iterated {} out of {}'.format(i, iterations), end="\r")
+        if not i % 100:
+            print('\tIterated {} out of {}'.format(i, iterations), end="\r")
         # select a random city
-        random_num = random.randint(0, cities.shape[0])
         select_city = cities.sample(1)[['x', 'y']].values
         # find the winner
         winner = find_winner(network, select_city)
         network = learn(winner, network, learning_rate, (select_city - network), size)
         # Decay the variables
-        learning_rate = learning_rate * decrease_rate
-        size = size * decrease_rate
+        learning_rate = learning_rate * 0.99997
+        size = size * 0.9997
 
-        # Generate a graph every 500 iterations
-        # if i%500 == 0:
-        #     #TODO: draw the picture
-        #     return 0
+        # Generate a graph every 1000 iterations
+        if i % 1000 == 0:
+            plot_learning_network(cities, network)
+            # plot_network(cities, network, name='diagrams/{:05d}.png'.format(i))
         # Check if any parameter has completely decayed.
         if size < 1 or learning_rate < 0.001:
             print('Complete execution',
                   'at {} iterations'.format(i))
             break
-        else:
-            print('Completed {} iterations.'.format(iterations))
-        # TODO draw the picture
+    else:
+        print('Completed {} iterations.'.format(iterations))
+        plot_network(cities, network, name='diagrams/{:05d}.png'.format(i))
 
         return get_route(cities, network)
