@@ -3,8 +3,8 @@ import numpy as np
 from normalize import normalize
 from distance import get_euclidean_distance
 from learn import learn
-from plot import plot_network
 from plot_network import plot_learning_network
+from plot_route import plot_route
 
 
 # first we assume that the normalize function will provide a numpy array (nodes)
@@ -45,13 +45,12 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
         winner = find_winner(network, select_city)
         network = learn(winner, network, learning_rate, (select_city - network), size)
         # Decay the variables
-        learning_rate = learning_rate * 0.99997
+        learning_rate = learning_rate * decrease_rate
         size = size * 0.9997
 
         # Generate a graph every 1000 iterations
         if i % 1000 == 0:
             plot_learning_network(cities, network)
-            # plot_network(cities, network, name='diagrams/{:05d}.png'.format(i))
         # Check if any parameter has completely decayed.
         if size < 1 or learning_rate < 0.001:
             print('Complete execution',
@@ -59,6 +58,8 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
             break
     else:
         print('Completed {} iterations.'.format(iterations))
-        plot_network(cities, network, name='diagrams/{:05d}.png'.format(i))
+        plot_learning_network(cities, network, name='diagrams/{:05d}.png'.format(i))
 
-        return get_route(cities, network)
+    route = get_route(cities, network)
+    plot_route(cities, route, 'diagrams/route.png')
+    return route
