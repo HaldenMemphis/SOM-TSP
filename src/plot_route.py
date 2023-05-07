@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def plot_route(city_df, route, figname='route.png'):
-    plt.scatter(city_df['x'], city_df['y'], c='b', label='City')
+    plt.scatter(city_df['x'], city_df['y'], c='b', label='City',s=2)
 
     for i in range(len(route) - 1):
         start = route[i]
@@ -11,6 +11,6 @@ def plot_route(city_df, route, figname='route.png'):
                  c='r', linewidth=2)
 
     plt.legend()
-    plt.title('City and Route Coordinates')
+    plt.title('Route Result')
     plt.savefig(figname, bbox_inches='tight', pad_inches=0)
     plt.close()
