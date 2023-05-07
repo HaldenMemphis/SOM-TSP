@@ -4,6 +4,8 @@ from fileread import read_tsp
 from dynamic import DP
 from distance import route_lenth
 import numpy as np
+from plot_dp import plot_dp
+from normalize import normalize
 
 
 def main():
@@ -12,7 +14,7 @@ def main():
     cities_list = read_tsp(file_path)
     print(cities_list)
     #SOM
-    # som_run(cities_list)
+    som_run(cities_list)
     # Dynamic
     dynamic_run(cities_list)
 
@@ -36,10 +38,12 @@ def dynamic_run(cities_list):
     print('Start Dynamic')
     data = np.array(cities_list)
     data = data[:, 1:]
-    model = DP(num_city=data.shape[0], num_total=25, iteration=500, data=data.copy())
     dynamic_start_time=datetime.datetime.now()
+    model = DP(num_city=data.shape[0], num_total=25, iteration=500, data=data.copy())
     Best_path, Best = model.run()
     dynamic_end_time =datetime.datetime.now()
+    print(Best_path)
+    plot_dp(Best_path)
     print('Time Usage of Dynamic {}'.format((dynamic_end_time - dynamic_start_time).seconds)+" seconds")
     print('Route found of length(Dynamic):{}'.format(Best))
 

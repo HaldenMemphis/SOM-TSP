@@ -31,7 +31,7 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
     # normalize all the cities' coordinates to [0,1]
     cities[['x', 'y']] = normalize(cities[['x', 'y']])
 
-    size = cities.shape[0] * 8
+    size = cities.shape[0] * 10
     network = create_network(size)
     print('Initialized a {} nodes network.'.format(size))
 
@@ -52,7 +52,7 @@ def som(cities_list, iterations, learning_rate, decrease_rate):
         if i % 1000 == 0:
             plot_learning_network(cities, network)
         # Check if any parameter has completely decayed.
-        if size < 1 or learning_rate < 0.001:
+        if size < 1 or learning_rate < 0.0001:
             print('Complete execution',
                   'at {} iterations'.format(i))
             break

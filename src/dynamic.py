@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-## 动态规划法
+## Dynamic Planning Method
 class DP(object):
     def __init__(self, num_city, num_total, iteration, data):
         self.num_city = num_city
         self.location = data
         self.dis_mat = self.compute_dis_mat(num_city, data)
 
-    # 计算不同城市之间的距离
+    # Calculate the distance between different cities
     def compute_dis_mat(self, num_city, location):
         dis_mat = np.zeros((num_city, num_city))
         for i in range(num_city):
@@ -24,7 +24,7 @@ class DP(object):
                 dis_mat[i][j] = tmp
         return dis_mat
 
-    # 计算路径长度, goback:是否计算回到起始点的路径
+    # Calculate the path length, goback: whether to calculate the path back to the start point
     def compute_pathlen(self, path, dis_mat, goback=True):
         try:
             a = path[0]
@@ -42,7 +42,7 @@ class DP(object):
             result += dis_mat[a][b]
         return result
 
-    # 动态规划过程
+    # Run DP
     def run(self):
         restnum = [x for x in range(1, self.num_city)]
         tmppath = [0]
@@ -70,10 +70,3 @@ class DP(object):
             tmppath = tmppath[0:insert] + [c] + tmppath[insert:]
             tmplen = minlen
         return self.location[tmppath], tmplen
-
-# # 显示规划结果
-# plt.scatter(Best_path[:, 0], Best_path[:, 1])
-# Best_path = np.vstack([Best_path, Best_path[0]])
-# plt.plot(Best_path[:, 0], Best_path[:, 1])
-# plt.title('st70:动态规划规划结果')
-# plt.show()
