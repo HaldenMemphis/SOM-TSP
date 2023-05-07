@@ -4,14 +4,15 @@ from fileread import read_tsp
 from dynamic import DP
 from distance import route_lenth
 import numpy as np
+from plot_route import plot_route
 
 
 def main():
     file_path = '/Users/jasondennis/PycharmProjects/SOM-TSP/san7999.csv'
 
-    iterations = 1000 * 1000
+    iterations = 100 * 1000
     learning_rate = 0.8
-    decrease_rate = 0.997
+    decrease_rate = 0.99997
 
     # Read from file
     cities_list = read_tsp(file_path)
@@ -22,9 +23,9 @@ def main():
     route = som(cities_list, iterations, learning_rate, decrease_rate)
     som_end_time = datetime.datetime.now()
     print('Time Usage of SOM {}'.format((som_end_time - som_start_time).microseconds))
-    final_route = cities_list.reindex(route)
-    # TODO: calculate the final route distance
-    print('Route found of length(SOM) {}'.format(route_lenth(final_route)))
+    plot_route(cities_list,route)
+    print(route)
+    print('Route found of length(SOM) {}'.format(route_lenth(route)))
     # Dynamic
     print('Start Dynamic')
     data = np.array(cities_list)
