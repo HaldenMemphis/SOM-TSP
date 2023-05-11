@@ -1,5 +1,14 @@
 # SOM-TSP
 SOM-TSP is an attempt to solve the traveler problem using the self-organizing map algorithm, and the same was implemented in the project to solve the traveler problem using the dynamic programming algorithm. The performance of using these two methods is compared
+### Contributors 
+Yifan Liu (sc22yl)  [@HaldenMemphis]
+
+Yifan Huang (sc22yh) [@flash666404]
+
+Litian Huang (sc22lh) [@Litian Huang]
+
+Yibo Sun (ml21y5s) [@YIBOWAY]
+
 ## [EN]
 This repository implements an attempt to solve the traveler problem with the SOM algorithm
 In this SOM algorithm:
