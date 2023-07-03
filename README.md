@@ -41,6 +41,6 @@ To run this project, run the `main` function inside `src/main.py`. Where the inp
 
 要运行此项目，请运行`src/main.py` 内的`main`函数。其中，输入文件为格式化的csv文件，可通过更改`file_path`来选择不同的数据。当然，学习率，最大迭代次数，和decrease rate可以通过`som_run`内的传入参数进行修改。
 
-###数据集
+### 数据集
 实验中的数据集是从一个名为 "Traveling Santa 2018 - Prime Paths "的比赛中选出的，该比赛发布在Kaggle网站上。这是原始数据集的链接：https://www.kaggle.com/competitions/traveling-santa-2018-prime-paths/data
 原始数据集包括一个城市及其坐标的列表，本实验从原始数据中随机选择数据进行实验。
